@@ -53,6 +53,7 @@
                             <suiteXmlFile>src/test/resources/CommentPostWithoutLoginTest.xml</suiteXmlFile>
                             <suiteXmlFile>src/test/resources/LikePostWithoutLoginTest.xml</suiteXmlFile>
                             <suiteXmlFile>src/test/resources/DislikePostWithoutLoginTest.xml</suiteXmlFile>
+                            <suiteXmlFile>src/test/resources/ModifyYourProfileTest.xml</suiteXmlFile>
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>
