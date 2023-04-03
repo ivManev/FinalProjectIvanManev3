@@ -1,0 +1,10 @@
+<suite name="Profile" verbose="2">
+    <test name="modifyYourProfile" preserve-order="true">
+        <parameter name="username" value="isQAfun12"/>
+        <parameter name="password" value="qwerty123"/>
+        <parameter name="publicInfo" value="Automation QA is great fun"/>
+        <classes>
+            <class name="tests.ModifyYourProfileTest"></class>>
+        </classes>>
+    </test>
+</suite>

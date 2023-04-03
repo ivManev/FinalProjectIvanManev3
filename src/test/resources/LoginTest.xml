@@ -1,0 +1,10 @@
+<suite name="Profile" verbose="2">
+    <test name="LoginTest" preserve-order="true">
+        <parameter name="usernameOrEmail" value="isQAfun12"/>
+        <parameter name="password" value="qwerty123"/>
+        <parameter name="username" value="isQAfun12"/>
+        <classes>
+            <class name="tests.LoginTest"></class>>
+        </classes>>
+    </test>
+</suite>
