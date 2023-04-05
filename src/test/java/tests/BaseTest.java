@@ -11,7 +11,6 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import org.testng.asserts.SoftAssert;
 
 import java.io.File;
 import java.io.IOException;
@@ -46,7 +45,6 @@ public class BaseTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        SoftAssert softAssert = new SoftAssert();
     }
 
     @AfterMethod
@@ -59,7 +57,11 @@ public class BaseTest {
 
     private void cleanDirectory(String directoryPath) throws IOException {
         File directory = new File(directoryPath);
-        FileUtils.cleanDirectory(directory);
+        if (!directory.exists()) {
+            directory.mkdirs();
+        } else {
+            FileUtils.cleanDirectory(directory);
+        }
         String[] fileList = directory.list();
         if (fileList != null && fileList.length == 0) {
             System.out.printf("All files are deleted in Directory: %s%n", directoryPath);
@@ -69,15 +71,6 @@ public class BaseTest {
     }
 
 
-    protected boolean isFileDownlaoded(File file, int timeoutSec) throws InterruptedException {
-        for (int i = 0; i < timeoutSec; i++) {
-            if(file.exists()) {
-                return true;
-            }
-            Thread.sleep(1000);
-        }
-        return false;
-    }
 
     private void takeScreenShot(ITestResult testResult) {
         if (ITestResult.FAILURE == testResult.getStatus()) {
